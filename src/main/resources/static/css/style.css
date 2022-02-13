@@ -1,0 +1,9 @@
+@import url('pico.min.css');
+
+.wrapper {
+    padding: 3rem 6rem;
+}
+
+article.product {
+    margin: 0;
+}
