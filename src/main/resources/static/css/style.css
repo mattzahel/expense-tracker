@@ -13,3 +13,7 @@
     height: 32px;
     margin-right: 8px;
 }
+
+select {
+    margin: 0;
+}

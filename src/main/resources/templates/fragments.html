@@ -19,6 +19,7 @@
         </ul>
 
         <ul>
+            <li th:if="${isLogged == true}"><a href="/expenses/new">Dodaj nowy</a></li>
             <li th:if="${isLogged == false}"><a href="/login">Zaloguj</a></li>
             <li th:if="${isLogged == true}"><a href="/logout">Wyloguj</a></li>
         </ul>

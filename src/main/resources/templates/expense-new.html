@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Expense</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav th:replace="fragments.html :: nav"></nav>
+
+<main class="container">
+    <div>
+        <hgroup>
+            <h1>Nowy wydatek</h1>
+            <h2>Uzupełnij poniższe pola, aby dodać nowy wydatek</h2>
+        </hgroup>
+        <form method="post" @onsubmit="preventDefault();">
+            <div class="grid">
+                <label>
+                    Podaj tytuł
+                    <input type="text" name="title" placeholder="Tytuł" required>
+                </label>
+                <label>
+                    Podaj wartość w PLN
+                    <input type="number" name="value" placeholder="Wartość wydatku" min="0.01" step="0.01" required>
+                </label>
+            </div>
+            <div class="grid">
+                <label>
+                    Kategoria
+                    <select name="category" required>
+                        <option value="" selected disabled>Wybierz kategorię…</option>
+                        <option value="jedzenie">Jedzenie</option>
+                        <option value="zdrowie">Zdrowie</option>
+                        <option value="rozrywka">Rozrywka</option>
+                        <option value="ubrania">Ubrania</option>
+                        <option value="mieszkanie">Mieszkanie</option>
+                        <option value="transport">Transport</option>
+                    </select>
+                </label>
+                <label for="date">
+                    Data
+                    <input type="date" id="date" name="date" placeholder="Wybierz datę" required>
+                </label>
+            </div>
+            <button type="submit" class="contrast">Dodaj</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
