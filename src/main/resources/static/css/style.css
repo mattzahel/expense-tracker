@@ -14,6 +14,6 @@
     margin-right: 8px;
 }
 
-select {
-    margin: 0;
+input[type="date"] {
+    padding-right: 0 !important;
 }

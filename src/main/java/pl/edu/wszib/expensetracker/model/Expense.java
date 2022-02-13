@@ -20,13 +20,17 @@ public class Expense {
     @Temporal(TemporalType.DATE)
     private java.util.Date date;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
+
     public Expense() {}
 
-    public Expense(int id, double value, String title, String category, Date date) {
+    public Expense(int id, double value, String title, String category, Date date, User user) {
         this.id = id;
         this.value = value;
         this.title = title;
         this.category = category;
         this.date = date;
+        this.user = user;
     }
 }
