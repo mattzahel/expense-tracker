@@ -8,18 +8,20 @@
     <title>Components</title>
 </head>
 <body>
-<nav th:fragment="nav" class="wrapper">
-    <ul>
-        <li>
-            <a href="/">
-                <strong>Expense Tracker</strong>
-            </a>
-        </li>
-    </ul>
+    <nav th:fragment="nav" class="container-fluid nav">
+        <ul>
+            <li>
+                <a href="/" class="logo">
+                    <img src="/img/logo.png" alt="expense-tracker logo">
+                    <strong>Expense Tracker</strong>
+                </a>
+            </li>
+        </ul>
 
-    <ul>
-        <li><a href="/login">Login</a></li>
-    </ul>
-</nav>
+        <ul>
+            <li th:if="${isLogged == false}"><a href="/login">Zaloguj</a></li>
+            <li th:if="${isLogged == true}"><a href="/logout">Wyloguj</a></li>
+        </ul>
+    </nav>
 </body>
 </html>

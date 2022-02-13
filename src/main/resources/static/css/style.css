@@ -1,9 +1,15 @@
 @import url('pico.min.css');
 
-.wrapper {
-    padding: 3rem 6rem;
+.nav {
+    padding: 16px 32px;
 }
 
-article.product {
-    margin: 0;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+    margin-right: 8px;
 }
