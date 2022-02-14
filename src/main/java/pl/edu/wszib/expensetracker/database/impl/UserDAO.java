@@ -2,6 +2,7 @@ package pl.edu.wszib.expensetracker.database.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.edu.wszib.expensetracker.database.IUserDAO;
@@ -17,6 +18,7 @@ public class UserDAO implements IUserDAO {
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     public Optional<User> getUserByLogin(String login) {
         Session session = this.sessionFactory.openSession();
         Query<User> query = session.createQuery(
@@ -35,6 +37,7 @@ public class UserDAO implements IUserDAO {
         }
     }
 
+    @Override
     public Optional<User> getUserById(int id) {
         Session session = this.sessionFactory.openSession();
         Query<User> query = session.createQuery(
@@ -50,6 +53,24 @@ public class UserDAO implements IUserDAO {
             session.close();
 
             return Optional.empty();
+        }
+    }
+
+    @Override
+    public void addUser(User user) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.save(user);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
         }
     }
 }

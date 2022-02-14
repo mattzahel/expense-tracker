@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Logowanie</title>
+    <title>Rejestracja</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,11 +13,16 @@
 
 <main class="container">
     <hgroup>
-        <h1>Zaloguj się</h1>
-        <h2>Aby korzystać z aplikacji zaloguj się na swoje konto lub <a href="/register">utwórz nowe</a></h2>
+        <h1>Zarejestruj się</h1>
+        <h2>Uzupełnij poniższe pola, aby założyć nowe konto. Posiadasz już własne? <a href="/login">Zaloguj się</a></h2>
     </hgroup>
 
     <form method="post">
+        <label for="name">
+            Imię
+            <input type="text" id="name" name="name" placeholder="Podaj imię" required>
+        </label>
+
         <label for="login">
             Login
             <input type="text" id="login" name="login" placeholder="Podaj login" required>
@@ -28,7 +33,12 @@
             <input type="password" id="password" name="password" placeholder="Podaj hasło" required>
         </label>
 
-        <button type="submit">Zaloguj</button>
+        <label for="password">
+            Powtórz hasło
+            <input type="password" id="passwordConfirmation" name="passwordConfirmation" placeholder="Powtórz hasło" required>
+        </label>
+
+        <button type="submit">Zarejestruj</button>
     </form>
 </main>
 </body>

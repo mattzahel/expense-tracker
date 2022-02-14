@@ -42,6 +42,6 @@ public class ExpenseController {
 
         expenseService.create(title, value, category, date);
 
-        return "expense-new";
+        return "redirect:/";
     }
 }
