@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MappingException;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.edu.wszib.expensetracker.database.IExpenseDAO;
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public class ExpenseDAO implements IExpenseDAO {
@@ -51,5 +53,20 @@ public class ExpenseDAO implements IExpenseDAO {
        } finally {
            session.close();
        }
+   }
+
+   @Override
+    public List<Expense> getUserExpenses(int userId) {
+       Session session = this.sessionFactory.openSession();
+       Query<Expense> query = session.createQuery(
+               "SELECT sum(value), date FROM pl.edu.wszib.expensetracker.model.Expense WHERE user.id = :userId " +
+                       "GROUP BY date ORDER BY date"
+       );
+       query.setParameter("userId", userId);
+       List<Expense> expenses = query.getResultList();
+
+       session.close();
+
+       return expenses;
    }
 }

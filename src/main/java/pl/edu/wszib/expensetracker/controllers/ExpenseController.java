@@ -19,16 +19,6 @@ public class ExpenseController {
     @Autowired
     ExpenseService expenseService;
 
-//    @RequestMapping(value = "/expenses", method = RequestMethod.GET)
-//    public String expensesPage(Model model) {
-//        if (!sessionObject.isLogged()) {
-//            return "redirect:/login";
-//        }
-//        model.addAttribute("isLogged", sessionObject.isLogged());
-
-//        return "expenses";
-//    }
-
     @RequestMapping(value = "/expenses/new", method = RequestMethod.GET)
     public String newExpensePage(Model model) {
         if (!sessionObject.isLogged()) {

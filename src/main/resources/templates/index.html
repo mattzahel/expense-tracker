@@ -7,17 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
 <body>
-<nav th:replace="fragments.html :: nav"></nav>
+    <nav th:replace="fragments.html :: nav"></nav>
 
-<main class="container">
-    <h1>Witaj <span th:text="${user.name}"></span></h1>
+    <main class="container">
+        <hgroup>
+            <h1>Witaj <span th:text="${user.name}"></span>!</h1>
+            <h2>Poniżej znajduje się wykres twoich ostatnich wydatków</h2>
+        </hgroup>
 
-    <div>
-        <p>Wygląda na to, że nie masz jeszcze żadnych wydatków. Naciśnij przycisk poniżej, aby dodać pierwszy!</p>
-        <a href="/expenses/new" role="button" class="contrast">Dodaj</a>
-    </div>
-</main>
+<!--        <div>-->
+<!--            <p>Wygląda na to, że nie masz jeszcze żadnych wydatków. Naciśnij przycisk poniżej, aby dodać pierwszy!</p>-->
+<!--            <a href="/expenses/new" role="button" class="contrast">Dodaj</a>-->
+<!--        </div>-->
+
+        <canvas id="expensesChart" width="400" height="200"></canvas>
+    </main>
+
+    <script src="/js/chart.js"></script>
 </body>
 </html>
