@@ -15,9 +15,7 @@
         <property name = "hibernate.connection.username">
             root
         </property>
-        <property name = "hibernate.connection.password">
-            zaq1@WSX
-        </property>
+        <property name="hibernate.connection.password" />
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
 

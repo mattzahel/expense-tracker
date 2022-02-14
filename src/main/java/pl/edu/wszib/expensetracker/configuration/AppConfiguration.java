@@ -31,7 +31,7 @@ public class AppConfiguration implements WebMvcConfigurer {
             return DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/expensetracker",
                     "root",
-                    "zaq1@WSX"
+                    ""
             );
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
