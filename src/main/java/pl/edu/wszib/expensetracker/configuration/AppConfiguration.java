@@ -40,7 +40,6 @@ public class AppConfiguration implements WebMvcConfigurer {
         return null;
     }
 
-
     @Bean
     public SessionFactory sessionFactory() {
         return new org.hibernate.cfg.Configuration()
