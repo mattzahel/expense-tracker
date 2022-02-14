@@ -20,4 +20,9 @@ input[type="date"] {
 
 #expensesChart {
     margin-top: 32px;
+    display: none;
+}
+
+.no-data-info {
+    display: none;
 }

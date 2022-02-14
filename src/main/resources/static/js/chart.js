@@ -1,3 +1,8 @@
+const getData = async () => {
+    return await fetch('http://localhost:8080/expenses')
+        .then(response => response.json())
+}
+
 const drawChart = (data) => {
     const ctx = document.getElementById('expensesChart');
 
@@ -29,19 +34,32 @@ const drawChart = (data) => {
     });
 }
 
-const getData = async () => {
-    return await fetch('http://localhost:8080/expenses')
-        .then(response => response.json())
-        .then(data => {
-            const dataset = data.map(function(el) {
-                return {
-                    value: el[0],
-                    date: el[1]
-                };
-            });
+const setInfoVisibility = (data) => {
+    const noDataInfo = document.querySelector('.no-data-info');
+    const chart = document.querySelector('#expensesChart');
 
-            drawChart(dataset);
-        });
+    if (data.length > 0) {
+        noDataInfo.style.display = 'none';
+        chart.style.display = 'block';
+    } else {
+        noDataInfo.style.display = 'block';
+        chart.style.display = 'none';
+    }
 }
 
-getData();
+
+function init() {
+    getData().then(data => {
+        const dataset = data.map(function(el) {
+            return {
+                value: el[0],
+                date: el[1]
+            };
+        });
+
+        setInfoVisibility(dataset);
+        drawChart(dataset);
+    });
+}
+
+init();

@@ -18,10 +18,14 @@
             <h2>Poniżej znajduje się wykres twoich ostatnich wydatków</h2>
         </hgroup>
 
-<!--        <div>-->
-<!--            <p>Wygląda na to, że nie masz jeszcze żadnych wydatków. Naciśnij przycisk poniżej, aby dodać pierwszy!</p>-->
-<!--            <a href="/expenses/new" role="button" class="contrast">Dodaj</a>-->
-<!--        </div>-->
+        <div class="no-data-info">
+            <p>
+                Ups... wygląda na to, że nie dodałeś jeszcze żadnych wydatków.
+                <br>
+                Naciśnij przycisk poniżej, aby dodać pierwszy!
+            </p>
+            <a href="/expenses/new" role="button" class="contrast">Dodaj</a>
+        </div>
 
         <canvas id="expensesChart" width="400" height="200"></canvas>
     </main>
