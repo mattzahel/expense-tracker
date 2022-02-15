@@ -1,5 +1,5 @@
 
-# Expenses Tracker App  
+# :money_with_wings: Expense Tracker App  
   
 The final project for the Java web application programming class. The main purpose of the app is to track user expenses.
   
@@ -35,5 +35,5 @@ The final project for the Java web application programming class. The main purpo
 
 4. Run app :blush:
 
-    To log in to the application, you must first create an account by going to the registration view (most likely `http://localhost:8080/register`)
+    To log in to the application, you must first create an account by going to the registration view (most likely http://localhost:8080/register)
     
